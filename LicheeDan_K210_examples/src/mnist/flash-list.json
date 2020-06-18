@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "files": [
+    {
+      "address": 0x00600000,
+      "bin": "m.kmodel",
+      "sha256Prefix": false
+    }
+  ]
+}
