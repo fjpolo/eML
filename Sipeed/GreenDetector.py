@@ -13,4 +13,5 @@ while True:
             tmp=img.draw_rectangle(b[0:4])
             tmp=img.draw_cross(b[5], b[6])
             c=img.get_pixel(b[5], b[6])
+    img.draw_string(2,2, ("Detecting Green..."), color=(0,128,0), scale=2)
     lcd.display(img)

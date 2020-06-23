@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>Penguins008.JPEG</filename>
+	<path>/media/Data/ML/Penguins/images/Penguins008.JPEG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>183</width>
+		<height>280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>penguin</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>66</xmin>
+			<ymin>62</ymin>
+			<xmax>156</xmax>
+			<ymax>183</ymax>
+		</bndbox>
+	</object>
+</annotation>

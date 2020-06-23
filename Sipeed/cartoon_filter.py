@@ -4,17 +4,12 @@
 # filter works by joining similar pixel areas of an image and replacing
 # the pixels in those areas with the area mean.
 
-import sensor, image, time, lcd
+import sensor, image, time
 
-# Init LCD
-lcd.init(freq=15000000)
-
-# Sensor
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565) # or GRAYSCALE...
 sensor.set_framesize(sensor.QVGA) # or QQVGA...
 sensor.skip_frames(time = 2000)
-sensor.run(1)
 clock = time.clock()
 
 while(True):
@@ -32,5 +27,3 @@ while(True):
     img = sensor.snapshot().cartoon(seed_threshold=0.05, floating_thresholds=0.05)
 
     print(clock.fps())
-
-    a = lcd.display(img)

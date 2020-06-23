@@ -7,18 +7,22 @@
 # face and track it. Keypoints can be used to automatically track anything.
 import sensor, time, image, lcd
 
+# INit LCD
+lcd.init(freq=15000000)
+
+
+# Reset sensor
 lcd.init()
 sensor.reset()
-sensor.set_pixformat(sensor.GRAYSCALE) # grayscale is faster
+sensor.set_contrast(2)
+sensor.set_gainceiling(16)
+#sensor.set_pixformat(sensor.GRAYSCALE) # grayscale is faster
+sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QVGA)
 sensor.set_windowing((320, 240))
+# Skip a few frames to allow the sensor settle down
+sensor.skip_frames(time = 2000)
 sensor.run(1)
-
-"""
-while True:
-    img = sensor.snapshot()
-    lcd.display(img)
-"""
 
 
 # Load Haar Cascade
@@ -32,7 +36,6 @@ kpts1 = None
 # Find a face!
 while (kpts1 == None):
     img = sensor.snapshot()
-    lcd.display(img)
     img.draw_string(0, 0, "Looking for a face...")
     # Find faces
     objects = img.find_features(face_cascade, threshold=0.5, scale=1.25)
@@ -43,12 +46,14 @@ while (kpts1 == None):
         kpts1 = img.find_keypoints(threshold=10, scale_factor=1.1, max_keypoints=100, roi=face)
         # Draw a rectangle around the first face
         img.draw_rectangle(objects[0])
+    lcd.display(img)
 
 # Draw keypoints
 print(kpts1)
 img.draw_keypoints(kpts1, size=24)
 img = sensor.snapshot()
 time.sleep(2000)
+lcd.display(img)
 
 # FPS clock
 clock = time.clock()
@@ -56,7 +61,6 @@ clock = time.clock()
 while (True):
     clock.tick()
     img = sensor.snapshot()
-
     # Extract keypoints from the whole frame
     kpts2 = img.find_keypoints(threshold=10, scale_factor=1.1, max_keypoints=100, normalized=True)
 
@@ -72,3 +76,4 @@ while (True):
     # Draw FPS
     img.draw_string(0, 0, "FPS:%.2f"%(clock.fps()))
     lcd.display(img)
+
