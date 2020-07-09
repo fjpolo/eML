@@ -15,12 +15,12 @@
         "backend":              "imagenet"
     },
     "train" : {
-        "actual_epoch":         100,
+        "actual_epoch":         5,
         "train_image_folder":   "sample_datasets/Penguins/images/train",
         "train_annot_folder":   "sample_datasets/Penguins/annotations/train",
         "train_times":          2,
         "valid_image_folder":   "sample_datasets/Penguins/images/test",
-        "valid_annot_folder":   "sample_datasets/racoon_dataset/annotations/test",
+        "valid_annot_folder":   "sample_datasets/Penguins/annotations/test",
         "valid_times":          2,
         "valid_metric":         "mAP",
         "batch_size":           4,

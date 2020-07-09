@@ -3,6 +3,7 @@ References:
 https://towardsdatascience.com/tutorial-build-an-object-detection-system-using-yolo-9a930513643a
 https://www.hackster.io/dmitrywat/object-detection-with-sipeed-maix-boards-kendryte-k210-421d55
 https://mlnotesblog.wordpress.com/2017/12/16/how-to-install-labelimg-in-ubuntu-16-04/
+https://lemariva.com/blog/2020/01/maixpy-object-detector-mobilenet-and-yolov2-sipeed-maix-dock
 
 
 
@@ -17,6 +18,38 @@ https://mlnotesblog.wordpress.com/2017/12/16/how-to-install-labelimg-in-ubuntu-1
 - Cleanse images
 - Label images with labelImg
 - Convert xml to csv with xml_to_csv.py
+
+|- annotations
+|-- test
+|-- train
+|- images
+|-- test
+|-- train
+
+(axelerate)$ python xml_to_csv.py
+Successfully converted xml to csv.
+Successfully converted xml to csv.
+
+
 - Run generate_tfrecord.py
+
++ open "generate_tfrecords.py"
++ Replace in 
+	# TO-DO replace this with label map
+	if row_label == 'Class1':
+        	return 1
+    	elif row_label == 'Class2':
+        	return 2
+    	elif row_label == 'Class3':
+        	return 3
+    	elif row_label == 'Class4':
+        	return 4
+    	else:
+        return None
+
+(axelerate)python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record
+(axelerate)python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record
+
+
 - Add YML config under axelerate/configs
 - Train!

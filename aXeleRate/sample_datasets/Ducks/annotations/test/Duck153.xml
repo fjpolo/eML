@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>Duck153.jpg</filename>
+	<path>/media/Data/ML-DL/aXeleRate/sample_datasets/Ducks/images/Duck153.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>393</width>
+		<height>280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>duck</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>41</xmin>
+			<ymin>15</ymin>
+			<xmax>271</xmax>
+			<ymax>248</ymax>
+		</bndbox>
+	</object>
+</annotation>

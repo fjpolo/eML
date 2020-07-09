@@ -35,7 +35,7 @@ def class_text_to_int(row_label):
         None
 """
 def class_text_to_int(row_label):
-    if row_label == 'penguin':
+    if row_label == 'duck':
         return 1
     else:
         return None
